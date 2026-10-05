@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    container_name: neuro_aggregator_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./bot.db:/app/bot.db
+    # Если используете PostgreSQL — раскомментируйте:
+    # depends_on:
+    #   - db
+    # environment:
+    #   DATABASE_URL: postgresql+asyncpg://neuro:neuro@db:5432/neuro
+
+  # db:
+  #   image: postgres:16-alpine
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: neuro
+  #     POSTGRES_PASSWORD: neuro
+  #     POSTGRES_DB: neuro
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+# volumes:
+#   pgdata:
