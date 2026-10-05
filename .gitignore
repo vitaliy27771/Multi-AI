@@ -17,3 +17,17 @@ logs/
 .idea/
 .vscode/
 .DS_Store
+# Temporary scripts & tests
+fix_*.py
+test_*.png
+test_*.jpg
+test_*.jpeg
+
+# Database
+bot.db
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
